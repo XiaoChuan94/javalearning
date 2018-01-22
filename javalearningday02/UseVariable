@@ -1,0 +1,66 @@
+package javalearningday02;
+
+/**
+ * 变量的使用
+ * @author 小川94
+ * @date 2018年1月21日
+ */
+public class UseVariable {
+	
+	// 成员变量，也可以称为全局变量，可在本类或者其他类中使用
+	private int age = 18;
+	
+	// 声明一个静态常量，成员变量的一种，也是一个类变量
+	private static final String GENDER = "BOY";
+	
+	// 常量，由关键字final定义
+	private final String NAME = "小川94";
+	
+	public static void main(String[] args) {
+		// 在main方法中定义的局部变量
+		int anotherAge = 20;
+		
+		// 变量的定义
+		int a; // 单个变量定义
+		int b = 2; // 单个变量定义并初始化
+		int c,d; // 单次定义多个变量
+		int _num = 1; // 可以是下划线开头，但是不建议
+		int num_ = 2; // 可以下划线结尾
+		int $num; // 也可以美元符号开头
+		int num2; // 可以是数字结尾
+		//int +num; // 错误写法，不能用运算符开头
+		//int .num; // 错误写法，不能用.号开头
+		//int 2num; // 错误写法，不能以数字开头
+		//int *num; // 错误写法，不能以*开头，其他特殊符号也是不可以的
+		int 变量 = 2; // 可以使用中文，但是建议不要使用
+		
+		// 不能使用关键字命名
+		//int class; // 不能使用关键字
+		//int goto; // Java保留关键字（保留关键字是指那些现有Java版本还未使用的关键字，但还是关键字）
+		//int const; // Java保留关键字
+		
+		// 不能使用保留字命名
+		/*
+		int true;
+		int false;
+		int null;*/
+	}
+	
+	public static String askName(String name){
+		// 局部变量只能在该变量定义并且初始化的操作域中使用，跨域使用会报错
+		// 错误写法  anotherAge cannot be resolved to a variable
+		//System.out.println(anotherAge);
+		
+		// 不能对非静态变量进行静态引用
+		// 错误写法  cannot make a static reference to the non-static field age
+		// System.out.println(age); 
+		
+		// 对于全局变量的引用，如果是非静态的，需要利用对象引用
+		UseVariable useVariable = new UseVariable();
+		System.out.println(useVariable.age);
+		
+		// 类变量（静态成员变量）可以直接使用
+		System.out.println("小川94的性别是"+GENDER);
+		return "Hello "+name;
+	}
+}
