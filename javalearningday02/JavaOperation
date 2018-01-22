@@ -1,0 +1,143 @@
+package javalearningday02;
+
+/**
+ * Java运算相关操作
+ * @author 小川94
+ * @date 2018年1月21日
+ */
+public class JavaOperation {
+
+	public static void main(String[] args) {
+		// 会抛出java.lang.ArithmeticException的异常
+		//System.out.println(3/0); 
+		
+		System.out.println(4/3); // 运行结果是1，取的字面量是int
+		
+		// 字面量都是int，计算的值是1，再赋值给doubleNumber
+		double doubleNumber = 4/3; 
+		//字面量是double，小范围自动转为大范围，计算的值是1.3333333333333333，再赋值给doubleNumber2
+		double doubleNumber2 = 4d/3; 
+		// 输出的是false，这里是先计算，再赋值
+		System.out.println(doubleNumber == doubleNumber2);
+		
+		System.out.println(-4%3); // 值是-1，负数对整数的余数是负数和0
+		// 测试取余数的周期性
+		getPeriodicResidue();
+		
+		selfAddAfter();
+		selfAddBefore();
+		logicOperation();
+		threeHeadOperation();
+		instanceOfOperation();
+	}
+	
+	/*
+	 * 观察取余算法，余数的周期性
+	 */
+	public static void getPeriodicResidue() {
+		// 计算1到20对4取余
+		for (int i=1; i<21; i++) {
+			System.out.println(i+"对4取余的余数是:"+i%4);
+		}
+		/* 控制台输出的结果:
+			1对4取余的余数是:1
+			2对4取余的余数是:2
+			3对4取余的余数是:3
+			4对4取余的余数是:0
+			5对4取余的余数是:1
+			6对4取余的余数是:2
+			7对4取余的余数是:3
+			8对4取余的余数是:0
+			9对4取余的余数是:1
+			10对4取余的余数是:2
+			11对4取余的余数是:3
+			12对4取余的余数是:0
+			13对4取余的余数是:1
+			14对4取余的余数是:2
+			15对4取余的余数是:3
+			16对4取余的余数是:0
+			17对4取余的余数是:1
+			18对4取余的余数是:2
+			19对4取余的余数是:3
+			20对4取余的余数是:0*/
+		// 对4取余的结果是以0,1,2,3为循环，不会超过4本身
+	}
+	
+	/**
+	 * 后加加，先将变量值赋给整体表达式，再计算n+1。后减减同理。
+	 */
+	public static void selfAddAfter() {
+		int n = 5;
+		n = n++;
+		n = n++;
+		n = n++;
+		n = n++;
+		System.out.println("n的值是"+n); // n = 5;
+	}
+	
+	/**
+	 * 先加加，先将变量值加1，再将加过1后的值赋给整体表达式。先减减同理
+	 */
+	public static void selfAddBefore() {
+		int m = 5;
+		int n = ++m;
+		System.out.println("m的值是"+m); // m = 6;
+		System.out.println("n的值是"+n); // n = 6;
+	}
+	
+	/**
+	 * 逻辑运算符
+	 */
+	public static void logicOperation() {
+		// false,并且发生了短路运算，因为3>4为false，可以直接为整个表达式定性，无需再判断4>5表达式的值
+		// 与运算中，所有条件都为true时，整体表达式才为true
+		System.out.println(3>4 && 4>5); // 4>5下面标黄了，提示是Dead code，说明不会运行后半部分的表达式
+		
+		// true,这里也发生了短路运算，不会去判断3>4的值
+		System.out.println(2>1 || 3>4);
+		// 或运算中，只要有一个为true,整个表达式的值就是true
+		System.out.println(3>4 || 2>1);
+		
+		// true，非运算中，true变false,false变true
+		System.out.println(!(4>5));
+	}
+	
+	public static void threeHeadOperation() {
+		int n = 3;
+		int m = 10;
+		int maxNum = n>m ? n : m; //单个写法
+		System.out.println(maxNum); // maxNum = 10
+		
+		// 设定忽略num小于0的情况
+		int num = 4;
+		String str = num != 0 ? num%2 == 0 ? "是偶数" : "是奇数" : "是0";
+		System.out.println(str); // 是偶数
+		
+		// 上面的三目运算符等价于下面的代码
+		if (num != 0) {
+			if (num%2 == 0) {
+				System.out.println("num是偶数");
+			} else {
+				System.out.println("num是奇数");
+			}
+		} else {
+			System.out.println("num是0");
+		}
+	}
+	
+	/**
+	 * instanceof 是用来在运行时指出对象是否是特定类的一个实例
+	 */
+	public static void instanceOfOperation() {
+		A a = new A();
+		String str = a instanceof A ? "a是A的实例" : "a不是A的实例";
+		System.out.println(str); // a是A的实例
+		
+		String str2 = null instanceof A ? "null是A的实例" : "null不是A的实例";
+		System.out.println(str2); // null不是A的实例
+	}
+}
+
+class A{
+	
+}
