@@ -1,0 +1,46 @@
+package javalearningday04;
+
+/**
+ * while(){}的用法
+ * @author 小川94
+ * @date 2018年1月31日
+ */
+public class WhileDemo {
+
+	public static void main(String[] args) {
+		testMethod();
+		testMethod2();
+	}
+	
+	/**
+	 * 计算1,2,3...,100的和
+	 * 先判断，后执行
+	 */
+	public static void testMethod() {
+		int i = 1;
+		int sum = 0;
+		while( i<101 ){
+			sum += i;
+			i++;
+		}
+		System.out.println(sum); // sum = 5050
+		System.out.println(i); // i = 101
+	}
+	
+	/**
+	 * 只有while()中的条件成立时，才会执行循环体
+	 * 如果while()中的条件永久为true，则会进入死循环，对程序会造成非常严重的后果，
+	 * 开发中需要严格判断循环条件！避免出现死循环
+	 */
+	public static void testMethod2() {
+		int i = 1;
+		int sum = 0;
+		while( i<1 ){
+			sum += i;
+			i++;
+		}
+		System.out.println(sum); // sum = 0
+		System.out.println(i); // i = 1
+	}
+	
+}
