@@ -1,0 +1,36 @@
+/**
+ * 
+ * @author 小川94
+ * @date 2018年1月28日
+ */
+public class JavaOperationPriority {
+
+	public static void main(String[] args) {
+		testMethod();
+	}
+	
+	/**
+	 * 由右向左计算，在进行运算代码编写时，建议加上括号区分层级性，增加可读性，同时方便后期维护
+	 */
+	public static void testMethod() {
+		// 右结合运算：运算符右边是否连接变量
+		// -n++，-号右边连接变量n，++右边没有连接变量，先算-号，再算++
+		int n = 5;
+		int m = -n++; //后加加是先算整体，(-n)++为-5
+		System.out.println(m); // m = -5
+		System.out.println(n); // n = 6
+		// ++右边连接变量i，先计算++i，再计算-(++i)
+		int i = 5;
+		int k = -++i;
+		System.out.println(i); // i = 6
+		System.out.println(k); // k = -6
+		int a = 5;
+		int b = -8-++a;
+		System.out.println(a); // 6
+		System.out.println(b); // -14
+		int c = 5;
+		int d = c<<=2; //c=c<<2; d = c
+		System.out.println(c); // 20
+		System.out.println(d); // 20
+	}
+}
