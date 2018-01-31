@@ -1,0 +1,51 @@
+package javalearningday04;
+
+/**
+ * continue、break的用法
+ * @author 小川94
+ * @date 2018年1月31日
+ */
+public class ContinueBreakDemo {
+
+	public static void main(String[] args) {
+		testContinue();
+		testBreak();
+	}
+	
+	/**
+	 * 求数组中正数的和
+	 * continue:在执行完continue语句后，其后的代码都不再执行，
+	 *          结束本次循环，进入下一次循环，整个循环结构还在继续执行
+	 */
+	public static void testContinue() {
+		int[] arr = {1,2,3,4,-5,6};
+		int sum = 0;
+		for(int i=0; i<arr.length; i++){
+			if (arr[i]<0) { //过滤数组中的负数
+				continue; 
+			} else {
+				sum += arr[i];
+			}
+		}
+		// 跳过-5，计算1+2+3+4+6的和
+		System.out.println(sum); // sum = 16
+	}
+	
+	/**
+	 * break:在执行完break语句后，其后的代码都不再执行，
+	 *       结束整个循环结构，
+	 */
+	public static void testBreak() {
+		int[] arr = {1,2,3,4,-5,6};
+		int sum = 0;
+		for(int i=0; i<arr.length; i++){
+			if (arr[i]<0) { 
+				break; // 与上面的代码一样，只是将continue换成了break
+			} else {
+				sum += arr[i];
+			}
+		}
+		// 只会计算1+2+3+4的和
+		System.out.println(sum); // sum = 10
+	}
+}
