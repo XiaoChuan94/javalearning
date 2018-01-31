@@ -8,3 +8,7 @@ Java知识点梳理代码
 ----- 2018年1月22日 --------
 1.Java变量
 2.Java运算符相关操作
+
+----- 2018年1月31日 --------
+1.Java运算符优先级操作（javalearningday03文件下）
+2.Java流程控制（javalearningday04文件夹下）
