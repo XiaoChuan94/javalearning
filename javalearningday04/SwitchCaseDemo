@@ -1,0 +1,147 @@
+package javalearningday04;
+
+/**
+ * switch{}的用法
+ * @author 小川94
+ * @date 2018年1月31日
+ */
+public class SwitchCaseDemo {
+
+	public static void main(String[] args) {
+		testMethodWithInt(3);
+		testMethodWithByte((byte)3);
+		testMethodWithChar((char)3);
+		testMethodWithShort((short)3);
+		testMethodWithString("MONDAY");
+		testMethodWithEnum(SIZE.MEDIUM);
+		testSwitchWithoutBreak("MONDAY");
+	}
+	
+	// 支持int
+	public static void testMethodWithInt(int num) {
+		switch (num) {
+			case 0:
+				System.out.println("num等于0");
+				break;
+			default:
+				System.out.println(num);
+				break;
+		}
+	}
+	
+	// 支持byte
+	public static void testMethodWithByte(byte num) {
+		switch (num) {
+			case 0:
+				System.out.println("num等于0");
+				break;
+			default:
+				System.out.println(num);
+				break;
+		}
+	}
+	
+	// 支持char
+	public static void testMethodWithChar(char num) {
+		switch (num) {
+			case 0:
+				System.out.println("num等于0");
+				break;
+			default:
+				System.out.println(num);
+				break;
+		}
+	}
+	
+	// 支持short
+	public static void testMethodWithShort(short num) {
+		switch (num) {
+			case 0:
+				System.out.println("num等于0");
+				break;
+			default:
+				System.out.println(num);
+				break;
+		}
+	}
+	
+	// 支持字符串
+	public static void testMethodWithString(String str) {
+		switch (str) {
+			case "MONDAY":
+				System.out.println("是星期一");
+				break;
+			default:
+				System.out.println(str);
+				break;
+		}
+	}
+	
+	public enum SIZE{
+		// 小号
+		SMALL,
+		// 中号
+		MEDIUM,
+		// 大号
+		LARGE;
+	}
+	
+	public SIZE size;
+	
+	public SwitchCaseDemo(SIZE size) {
+		this.size = size;
+	}
+	// 支持枚举类型
+	public static void testMethodWithEnum(SIZE size) {
+		switch (size) {
+			case SMALL:
+				System.out.println("是小号");
+				break;
+			case MEDIUM:
+				System.out.println("是中号");
+				break;
+			case LARGE:
+				System.out.println("是大号");
+				break;
+			default:
+				System.out.println("没有其他号了");
+				break;
+		}
+	}
+	
+	// 不写break语句，则每种情况都会执行
+	public static void testSwitchWithoutBreak(String str) {
+		switch (str) {
+			case "MONDAY":
+				System.out.println("吃包子");
+			case "SUNDAY":
+				System.out.println("吃面条");
+			default:
+				System.out.println("喝粥");
+		}
+	}
+	
+	// 不支持long类型的数据
+	/*public static void testMethodWithLong(long num) {
+		switch (num) {
+			case 0:
+				System.out.println("num等于0");
+				break;
+			default:
+				System.out.println(num);
+				break;
+		}
+	}*/
+	
+	// 不支持double类型的数据
+	/*public static void testMethodWithDouble(double num) {
+		switch (num) {
+			case 0:
+				System.out.println("num等于0");
+				break;
+			default:
+				System.out.println(num);
+				break;
+		}
+	}*/
+}
