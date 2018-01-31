@@ -1,0 +1,38 @@
+package javalearningday04;
+
+/**
+ * for循环的用法
+ * @author 小川94
+ * @date 2018年1月31日
+ */
+public class ForDemo {
+	
+	public static void main(String[] args) {
+		testMethod();
+		testMethod2();
+	}
+	
+	/**
+	 * 计算1,2,3...,100的和
+	 */
+	public static void testMethod() {
+		int sum = 0;
+		for (int i=1; i<101; i++) {
+			sum += i;
+		}
+		System.out.println(sum); //sum = 5050
+	}
+	
+	public static void testMethod2() {
+		String[] strArray = {"小明","小马","小王"};
+		// foreach循环遍历
+		for (String str : strArray) {
+			System.out.println(str); // 依次打印 小明  小马  小王
+		}
+		// 两种写法的输出结果都是一样的
+		for (int i=0; i<strArray.length; i++) {
+			System.out.println(strArray[i]); // 依次打印 小明  小马  小王
+		}
+	}
+	
+}
