@@ -1,0 +1,44 @@
+package javalearningday04;
+
+/**
+ * do{}while();的用法
+ * @author 小川94
+ * @date 2018年1月31日
+ */
+public class DoWhileDemo {
+
+	public static void main(String[] args) {
+		testMethod();
+		testMethod2();
+	}
+	
+	/**
+	 * 计算1,2,3...,100的和
+	 * 先执行，后判断
+	 */
+	public static void testMethod() {
+		int i = 1;
+		int sum = 0;
+		do{
+			sum += i;
+			i++;
+		}while(i<101);
+		System.out.println(sum); // sum = 5050
+		System.out.println(i); // i = 101
+	}
+	
+	/**
+	 * do{}while();的循环结构，至少会执行一次循环体
+	 * 在while中的条件不成立时，已经执行了一次循环体
+	 */
+	public static void testMethod2() {
+		int i = 1;
+		int sum = 0;
+		do{
+			sum += i;
+			i++;
+		}while(i<1);
+		System.out.println(sum); // sum = 1
+		System.out.println(i); // i = 2
+	}
+}
