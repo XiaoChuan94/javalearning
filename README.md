@@ -14,4 +14,7 @@ Java知识点梳理代码
 2.Java流程控制（javalearningday04文件夹下）
 
 ----- 2018年3月10日 --------
-1.Java数组相关操作
+1.Java数组相关操作（javalearningday05文件夹下）
+
+----- 2018年3月24日 --------
+1.Java方法相关操作（javalearningday06文件夹下）
