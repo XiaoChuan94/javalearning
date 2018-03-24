@@ -1,0 +1,72 @@
+package javalearningday06;
+
+import java.util.Arrays;
+
+/**
+ * 方法
+ * @author 小川94
+ * @date 2018年3月24日
+ */
+public class Function {
+
+	public static void main(String[] args) {
+		System.out.println(helloSomeone("")); // Hello world ！
+		System.out.println(helloSomeone("小川94")); // Hello，小川94 ！
+		System.out.println(randomCheckCode(4));
+		
+		// 对于方法中参数的验证
+		int a = 5; // 声明的局部变量a
+		// 将a传给add方法，并不会使用上面已经在栈中存在的a，而是会另外在栈中开辟存储空间，存放传参a
+		add(a); 
+		// 输出打印的a是main方法中声明的变量a，不是add方法中的传参a
+		System.out.println(a); // a = 5
+	}
+	
+	/**
+	 * 打招呼方法
+	 * StringUtil为工具类，同包下的类不需要引用；
+	 * 对于传递进来的参数，如果后续会对其进行相关操作，请务必判断是否为空
+	 * @param name 名称
+	 * @return
+	 */
+	public static String helloSomeone(String name) {
+		if (StringUtil.IsNullOrEmpty(name)) {
+			return "Hello world ！";
+		}
+		return "Hello，" + name + " ！";
+	}
+	
+	/**
+	 * 生成num位随机验证码字符串
+	 * @param num 验证码位数
+	 * @return
+	 */
+	private static String randomCheckCode(int num){
+		if (StringUtil.IsNullOrEmpty(num)) {
+			return "请传入需要生成几位数验证码的参数！";
+		}
+		if (0 == num || num < 0) {
+			return "请传入大于0的正整数！";
+		}
+		String[] dic = {"A","B","C","D","E","F","G","H","I","J",
+				"K","L","M","N","O","P","Q","R","S","T",
+				"U","V","W","X","Y","Z","0","1","2","3",
+				"4","5","6","7","8","9"};
+		String[] strArr = new String[num];
+		for (int i=0; i<strArr.length; i++) {
+			int index = (int)(Math.random()*dic.length);
+			strArr[i] = dic[index];
+		}
+		return Arrays.toString(strArr);
+	}
+	
+	/**
+	 * 关于方法中变量的问题：
+	 *   方法中声明的变量、参数列表的传参都是局部变量，运行期间，都会在栈中分配存储空间
+	 * @param a
+	 */
+	protected static void add(int a) {
+		a++;
+	}
+	
+}
